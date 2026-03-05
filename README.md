@@ -27,8 +27,4 @@ cd frontend
 npm install
 npm start
 
-Backend structure added for URL attack detection.
-Implemented PCAP file upload and analysis module.
-Added URL attack detection logic based on IP data analysis.
-Initialize URL attack detection project structure
-Setup backend architecture for URL attack detection system
+Packet extraction and preprocessing from PCAP files implemented.

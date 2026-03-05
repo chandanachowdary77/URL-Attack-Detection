@@ -33,3 +33,4 @@ URL-based attack detection logic added.
 Flask API endpoints created for attack analysis.
 Frontend dashboard added for uploading and analyzing PCAP files.
 Attack detection results visualization added to UI.
+Project documentation and workflow updated.

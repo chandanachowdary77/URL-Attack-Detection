@@ -11,6 +11,10 @@ class AttackDatabase:
         self.db_path = base_dir / "attacks.db"
         self.init_database()
 
+        conn = sqlite3.connect(self.db_path)
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.close()
+
     # ---------------------------------------------------
     # DATABASE INITIALIZATION
     # ---------------------------------------------------
@@ -18,7 +22,8 @@ class AttackDatabase:
     def init_database(self):
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
 
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=10)
+        conn.execute("PRAGMA journal_mode=WAL")
         cursor = conn.cursor()
 
         cursor.execute('''
@@ -113,7 +118,7 @@ class AttackDatabase:
         if not attack_data.get('is_malicious', False):
             return None
 
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=10)
         cursor = conn.cursor()
 
         user_id = attack_data.get('user_id', '')
@@ -174,7 +179,7 @@ class AttackDatabase:
     def insert_batch(self, attacks_list):
         """Insert multiple malicious attacks with duplicate handling"""
 
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=10)
         cursor = conn.cursor()
 
         inserted = 0
@@ -243,7 +248,7 @@ class AttackDatabase:
     # ---------------------------------------------------
 
     def get_attacks(self, limit=100, offset=0, filters=None):
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=10)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
@@ -281,7 +286,7 @@ class AttackDatabase:
     # ---------------------------------------------------
 
     def get_statistics(self, user_id=None):
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=10)
         cursor = conn.cursor()
 
         stats = {}

@@ -1,0 +1,319 @@
+/* Upload Card */
+.pcap-upload-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed #0142a2;
+  border-radius: 12px;
+  padding: 45px 20px;
+  background: #f8f9fa;
+  transition: 0.3s ease;
+}
+
+.upload-area:hover {
+  background: #eef2ff;
+  border-color: #054c98;
+}
+
+.upload-icon {
+  font-size: 38px;
+  color: #0142a2;
+  margin-bottom: 15px;
+}
+
+.upload-area h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.upload-area p {
+  font-size: 15px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* Select Button */
+.select-btn {
+  background: #0142a2;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.select-btn:hover {
+  background: #0b5ed7;
+}
+
+.selected-file {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* Analyze Button */
+.analyze-btn {
+  margin-top: 25px;
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background: #0142a2;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.analyze-btn:hover {
+  background: #0b5ed7;
+}
+/* Results Layout */
+.pcap-results-row {
+  display: flex;
+  gap: 30px;
+  align-items: stretch; /* equal height */
+  margin-top: 30px;
+}
+
+/* Summary & Threat Cards */
+.pcap-summary-card,
+.pcap-threat-card {
+  flex: 1;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Headings */
+.pcap-summary-card h4,
+.pcap-threat-card h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0142a2;
+}
+
+/* Summary Content */
+.pcap-summary-card p {
+  font-size: 17px;
+  margin-bottom: 14px;
+  color: #212529;
+}
+
+.pcap-summary-card strong {
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Threat List */
+.threat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Individual Threat Row */
+.threat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Threat Name */
+.threat-item span:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #212529;
+}
+
+/* Threat Count Badge */
+.threat-count {
+  background: #dc3545;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* Export Button Inside Summary */
+.export-btn {
+  margin-top: auto; /* push to bottom */
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pcap-results-row {
+    flex-direction: column;
+  }
+}
+/* PCAP History Table */
+.pcap-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pcap-history-table thead {
+  background: #0142a2;
+  color: white;
+}
+
+.pcap-history-table th,
+.pcap-history-table td {
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.pcap-history-table th {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pcap-history-table tbody tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pcap-history-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.attack-count {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.status-badge {
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+/* Uploaded Section Wrapper */
+.pcap-uploaded-section {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Section Title */
+.pcap-uploaded-section h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0142a2;
+}
+
+/* Table Container */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* PCAP History Table */
+.pcap-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header */
+.pcap-history-table thead {
+  background: #0142a2;
+  color: white;
+}
+
+.pcap-history-table th {
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Body Cells */
+.pcap-history-table td {
+  padding: 16px;
+  text-align: center;
+  font-size: 17px;
+  vertical-align: middle;
+}
+
+/* Row Styling */
+.pcap-history-table tbody tr {
+  border-bottom: 1px solid #d6cece;
+  transition: 0.2s ease;
+}
+
+.pcap-history-table tbody tr:hover {
+  background: #f4f7ff;
+}
+
+/* Attack Count Styling */
+.attack-count {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-badge:contains("Completed") {
+  background: #28a745;
+  color: white;
+}
+
+/* Export Button Alignment */
+.pcap-history-table .btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+}

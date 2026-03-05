@@ -1,0 +1,27 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Upload folders
+uploads/
+pcap_uploads/
+exports/
+
+# Node
+node_modules/
+build/
+
+# Environment
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# secrets
+serviceAccountKey.json
+backend/serviceAccountKey.json

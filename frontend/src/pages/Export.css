@@ -1,0 +1,236 @@
+
+.export-container {
+  max-width: 2100px;
+  margin: 9px auto;
+  padding: 0 20px;
+}
+
+.export-title {
+  font-weight: 600;
+  font-size: 35px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;;
+}
+
+.export-icon {
+  color: hwb(182 11% 1%) !important;
+  font-size: 35px;
+}
+
+.export-subtitle {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #fbfdff !important;
+  padding-bottom: 10px;
+}
+
+.export-header h2 {
+  font-weight: 600;
+}
+
+.export-header p {
+  color: #ffffff;
+}
+
+.header-icon {
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.export-grid {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.export-card {
+  flex: 1;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+.export-card h4 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.export-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  background: #0142a2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.export-button:hover {
+  background: #0b5ed7;
+}
+
+.info-section {
+  margin-bottom: 16px;
+}
+
+.info-section h6 {
+  font-weight: 600;
+}
+
+.tip-box {
+  margin-top: 16px;
+  padding: 10px;
+  background: #e7f1ff;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.export-btn {
+  width: 100%;
+  padding: 12px 18px;
+  background: #054c98fe;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.export-btn i {
+  font-size: 15px;
+}
+
+.export-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003d80);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.export-btn:active {
+  transform: scale(0.98);
+}
+.row.g-4 {
+  align-items: stretch;
+}
+.col-md-6 {
+  display: flex;
+}
+
+.col-md-6 .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card form,
+.card > div {
+  flex-grow: 1;
+}
+.export-container .form-select {
+  height: 48px;          /* increase height */
+  font-size: 16px;
+  padding: 10px 12px;
+}
+.export-container .form-check-input {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+.export-btn {
+  height: 50px;      /* taller button */
+  font-size: 17px;
+}
+.export-container .card {
+  font-size: 17px;   /* base text size inside cards */
+}
+.export-container .card h5 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.export-container .mb-3 {
+  margin-bottom: 48px !important;   /* increase section spacing */
+}
+.export-container .form-check:last-child {
+  margin-bottom: 10px;
+}
+.export-btn {
+  margin-top: 20px;
+}
+.export-container .form-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+.export-container .form-check-label {
+  font-size: 18px;
+}
+
+.export-container .form-check-input {
+  transform: scale(1.2);   /* bigger radio button */
+}
+.export-container .form-select {
+  font-size: 18px;
+  height: 50px;
+}
+.export-container .form-select {
+  border: 2px solid #1f3f77;   /* darker border */
+  border-radius: 8px;
+}
+.export-container .form-check-input {
+  border: 2px solid #1f3f77;
+}
+
+.export-container .form-check-input:checked {
+  background-color: #054c98;
+  border-color: #054c98;
+}
+/* Force left alignment inside export cards */
+.export-container .card {
+  text-align: left;
+}
+
+.export-container .card h5,
+.export-container .card h6,
+.export-container .card p,
+.export-container .card ul,
+.export-container .card li {
+  text-align: left !important;
+}
+
+.export-container .card ul {
+  padding-left: 20px;
+}
+
+.export-container .alert {
+  text-align: left;
+}

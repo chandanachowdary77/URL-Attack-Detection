@@ -1,0 +1,239 @@
+.analyze-container {
+  max-width: 1900px;
+  max-height: 1900px;
+  margin: 40px auto;
+  font-size: 20px; 
+}
+
+.analyze-card,
+.result-card {
+  background: #ffffff;
+  padding: 64px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.analyze-title {
+  margin-bottom: 20px;
+  font-weight: 650;
+  font-size: 28px;
+  color: #011e7f;
+}
+.analyze-label {
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.analyze-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b6babd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.analyze-help {
+  font-size: 12px;
+  color: #666d74;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.analyze-button {
+  background-color: #0429a2;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.analyze-button:hover {
+  background-color: #0f60d8;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.result-badge {
+  padding: 10px 22px;      /* bigger padding */
+  border-radius: 8px;
+  font-size: 18px;         /* bigger text */
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  min-width: 120px;        /* prevents text squeeze */
+  text-align: center;
+}
+
+.result-badge.danger {
+  background-color: #dc3545;
+}
+
+.result-badge.success {
+  background-color: #198754;
+}
+
+.url-box {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.summary-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.summary-grid strong {
+  font-size: 20px;   /* numbers bigger */
+}
+
+.summary-label {
+  font-size: 18px;
+  color: #000000;   /* darker */
+  font-weight: 500;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.badge.warning {
+  background-color: #ffc107;
+  color: #050505;
+  font-size: 18px;
+  padding: 6px 14px;
+}
+
+.badge.danger {
+  background-color: #dc3545;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
+.threat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;   /* increase size */
+  font-weight: 600;
+}
+
+.threat-table th,
+.threat-table td {
+  border: 0.5px solid #232527;
+  padding: 8px;
+  font-size: 18px;
+  padding: 12px;
+}
+.threat-table th {
+  background-color: #f1f3f5;
+  color: #0a0284;   /* dark text */
+  font-weight: 600;
+}
+.threat-table th {
+  background-color: #f8f9fa;
+}
+
+.safe-alert {
+  background-color: #d1e7dd;
+  padding: 10px;
+  border-radius: 6px;
+  color: #0f5132;
+  font-size: 14px;
+}
+.result-card {
+  color: #212529;
+}
+.analyze-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 28px;   /* or whatever you prefer */
+}
+
+.analyze-icon {
+  margin-right: 8px;
+  color: #0444a3;
+
+}
+.results-btn {
+  background-color: #1e3a8a; /* same blue tone */
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.results-btn:hover {
+  background-color: #1d4ed8; /* lighter blue on hover */
+  transform: translateY(-2px);
+}
+/* 🤖 AI Explanation Section */
+.ai-explanation {
+  background: #f0f4ff;              /* soft blue background */
+  border-left: 6px solid #0429a2;   /* strong blue accent */
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* AI Title */
+.ai-explanation h6 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0429a2;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Add icon style if needed */
+.ai-explanation h6::before {
+  content: "🤖";
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Explanation text */
+.ai-explanation p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #212529;
+  white-space: pre-wrap;
+}
+
+/* Loading State Enhancement */
+.analyze-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Smooth appearance animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -54,7 +54,7 @@ const Analyze = () => {
     setExplanation("");
 
     try {
-      const response = await authFetch("http://localhost:5000/api/analyze", {
+      const response = await authFetch("http://16.171.39.9:5000/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url })
@@ -87,7 +87,7 @@ if (data?.ai_explanation && data.ai_explanation.trim() !== "") {
     setExplanation("");
 
     try {
-      const response = await authFetch("http://localhost:5000/api/explain", {
+      const response = await authFetch("http://16.171.39.9:5000/api/explain", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

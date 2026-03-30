@@ -17,7 +17,7 @@ const Attacks = () => {
 
   const loadAttacks = async () => {
     try {
-      const response = await authFetch("http://localhost:5000/api/history");
+      const response = await authFetch("http://16.171.39.9:5000/api/history");
       const data = await response.json();
       setAttacks(data.attacks || []);
     } catch (error) {
@@ -35,7 +35,7 @@ const Attacks = () => {
 
     try {
       const response = await authFetch(
-        "http://localhost:5000/api/get-explanation",
+        "http://16.171.39.9:5000/api/get-explanation",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

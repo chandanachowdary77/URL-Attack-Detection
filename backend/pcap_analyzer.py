@@ -3,6 +3,7 @@ import pyshark
 from attack_detector import URLAttackDetector
 from database import AttackDatabase
 from datetime import datetime
+from urllib.parse import unquote
 
 detector = URLAttackDetector()
 db = AttackDatabase()
@@ -24,17 +25,18 @@ def process_pcap(file_path):
                 if not url:
                     continue
 
-                analysis = detector.analyze_url(url)
+                # 🔧 decode URL if encoded
+                decoded_url = unquote(url)
 
-                # 🔥 Success logic (no real response in txt mode)
+                analysis = detector.analyze_url(decoded_url)
+
                 is_successful = False
 
-                # Convert to DB format manually
                 if analysis["is_malicious"]:
                     db_records.append({
                         "timestamp": datetime.now().isoformat(),
                         "source_ip": "0.0.0.0",
-                        "url": url,
+                        "url": decoded_url,
                         "method": "GET",
                         "user_agent": "",
                         "attack_type": analysis["primary_attack_type"],
@@ -51,7 +53,7 @@ def process_pcap(file_path):
                 results.append({
                     "timestamp": datetime.now().isoformat(),
                     "source_ip": "0.0.0.0",
-                    "url": url,
+                    "url": decoded_url,
                     "method": "GET",
                     "user_agent": "",
                     "attack_type": analysis["primary_attack_type"],
@@ -76,12 +78,25 @@ def process_pcap(file_path):
             if hasattr(packet, 'http'):
 
                 uri = getattr(packet.http, 'request_uri', '')
+
+                if not uri:
+                    uri = getattr(packet.http, 'request_uri_path', '')
+
+                if not uri:
+                    uri = getattr(packet.http, 'request_full_uri', '')
+
                 host = getattr(packet.http, 'host', '')
-                full_url = f"http://{host}{uri}"
 
-                analysis = detector.analyze_url(full_url)
+                if uri.startswith("http"):
+                    full_url = uri
+                else:
+                    full_url = f"http://{host}{uri}"
 
-                # 🔥 Updated Success Logic
+                # 🔧 CRITICAL FIX: decode URL
+                decoded_url = unquote(full_url)
+
+                analysis = detector.analyze_url(decoded_url)
+
                 is_successful = False
                 if hasattr(packet.http, "response_code"):
                     response_code = packet.http.response_code
@@ -92,7 +107,7 @@ def process_pcap(file_path):
                     db_records.append({
                         "timestamp": str(packet.sniff_time),
                         "source_ip": packet.ip.src if hasattr(packet, 'ip') else "",
-                        "url": full_url,
+                        "url": decoded_url,
                         "method": getattr(packet.http, 'request_method', 'GET'),
                         "user_agent": "",
                         "attack_type": analysis["primary_attack_type"],
@@ -109,7 +124,7 @@ def process_pcap(file_path):
                 results.append({
                     "timestamp": str(packet.sniff_time),
                     "source_ip": packet.ip.src if hasattr(packet, 'ip') else "",
-                    "url": full_url,
+                    "url": decoded_url,
                     "method": getattr(packet.http, 'request_method', 'GET'),
                     "user_agent": "",
                     "attack_type": analysis["primary_attack_type"],

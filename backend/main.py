@@ -380,7 +380,29 @@ def upload_pcap():
     file.save(file_path)
 
     start_time = datetime.now()
+
+    # 🔧 FIX: ensure PCAP actually contains HTTP packets
+    try:
+        from scapy.all import rdpcap, TCP, Raw
+
+        packets = rdpcap(file_path)
+        http_packets = []
+
+        for pkt in packets:
+            if pkt.haslayer(TCP) and pkt.haslayer(Raw):
+                payload = pkt[Raw].load.decode(errors="ignore")
+                if "GET " in payload or "POST " in payload:
+                    http_packets.append(pkt)
+
+        if not http_packets:
+            app.logger.warning("No HTTP requests found in PCAP")
+
+    except Exception as e:
+        app.logger.warning("PCAP validation failed: %s", e)
+
+    # 🔧 existing logic continues
     results = process_pcap(file_path)
+
     end_time = datetime.now()
 
     processing_time = (end_time - start_time).total_seconds()

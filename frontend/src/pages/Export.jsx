@@ -10,7 +10,7 @@ const Export = () => {
   const handleExport = async (e) => {   // ✅ made async
     e.preventDefault();
 
-    let url = `http://localhost:5000/api/export?format=${format}`;
+    let url = `http://16.171.39.9:5000/api/export?format=${format}`;
 
     if (attackType) url += `&attack_type=${attackType}`;
     if (severity) url += `&severity=${severity}`;

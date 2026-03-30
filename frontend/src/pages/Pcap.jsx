@@ -142,7 +142,7 @@ const Pcap = () => {
             <p><strong>Processing Time:</strong> {summary.processing_time_sec ?? 0} sec</p>
 
             <a
-              href={`http://localhost:5000/api/export-pcap-file?file=${summary.filename}`}
+              href={`http://16.171.39.9:5000/api/export-pcap-file?file=${summary.filename}`}
               className="btn btn-outline-primary export-btn"
             >
               <i className="fas fa-download"></i> Export This PCAP Attacks (CSV)

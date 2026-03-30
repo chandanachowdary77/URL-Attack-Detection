@@ -22,7 +22,8 @@ class URLAttackDetector:
             r"benchmark\(",
             r"sleep\(",
             r"or\s+1=1",
-            r"and\s+1=1"
+            r"and\s+1=1",
+            r"or\s+\d+=\d+"
         ]
 
         # -----------------------------
@@ -58,12 +59,18 @@ class URLAttackDetector:
         # Command Injection
         # -----------------------------
         self.command_patterns = [
-            r";\s*(cat|ls|dir|type|ping|wget|curl|whoami|id)",
-            r"\|\s*(nc|netcat|telnet)",
-            r"&&\s*(whoami|id|uname)",
-            r"`.*`",
-            r"\$\(.*\)"
-        ]
+    r"cmd=",
+    r"exec=",
+    r"run=",
+    r";\s*(cat|ls|dir|type|ping|wget|curl|whoami|id)",
+    r"\|\s*(nc|netcat|telnet)",
+    r"&&\s*(whoami|id|uname)",
+    r"`.*`",
+    r"\$\(.*\)",
+    r"whoami",
+    r"id",
+    r"uname"
+]
 
         # -----------------------------
         # SSRF
@@ -162,6 +169,9 @@ class URLAttackDetector:
     # ---------------------------------
 
     def analyze_url(self, url):
+        # 🔧 Normalize URL before analysis
+        url = urllib.parse.unquote(url)  # decode %20 etc
+        url = url.lower()
 
         results = {
             "url": url,

@@ -30,12 +30,12 @@ const Dashboard = () => {
 
   const loadDashboard = async () => {
   try {
-    const statsRes = await authFetch("http://localhost:5000/api/statistics");
+    const statsRes = await authFetch("http://16.171.39.9:5000/api/statistics");
     const statsData = await statsRes.json();
     console.log("Stats:", statsData);
     setStats(statsData);
 
-    const attacksRes = await authFetch("http://localhost:5000/api/history");
+    const attacksRes = await authFetch("http://16.171.39.9:5000/api/history");
     const attacksData = await attacksRes.json();
     console.log("Attacks:", attacksData);
 
@@ -67,7 +67,7 @@ const Dashboard = () => {
 
     try {
       const response = await authFetch(
-        "http://localhost:5000/api/generate-dataset",
+        "http://16.171.39.9:5000/api/generate-dataset",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

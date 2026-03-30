@@ -16,7 +16,7 @@ const Pcap = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const res = await authFetch("http://localhost:5000/api/pcap-files");
+      const res = await authFetch("http://16.171.39.9/:5000/api/pcap-files");
       const data = await res.json();
       setFiles(data.files || []);
     } catch (err) {
@@ -46,7 +46,7 @@ const Pcap = () => {
         headers["Authorization"] = `Bearer ${token}`;
       }
       const response = await fetch(
-        "http://localhost:5000/api/upload-pcap",
+        "http://16.171.39.9:5000/api/upload-pcap",
         {
           method: "POST",
           headers,
@@ -218,7 +218,7 @@ const Pcap = () => {
                     </td>
                     <td>
                       <a
-                        href={`http://localhost:5000/api/export-pcap-file?file=${fileItem.filename}`}
+                        href={`http://16.171.39.9//api/export-pcap-file?file=${fileItem.filename}`}
                         className="btn btn-sm btn-primary"
                       >
                         Export
